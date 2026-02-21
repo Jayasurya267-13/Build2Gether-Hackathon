@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESAMS - Android App Wireframes</title>
+    <meta name="description"
+        content="AI-Driven Emergency Shelter Availability Management System - Android Mobile App Wireframes">
+    <link rel="stylesheet" href="mobile-app.css">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <h2><span class="brand-icon">🏥</span> ESAMS Mobile</h2>
+                <p>Android App Wireframes</p>
+            </div>
+            <div class="theme-toggle">
+                <button onclick="setTheme('light')">☀️ Light</button>
+                <button class="active" onclick="setTheme('dark')">🌙 Dark</button>
+            </div>
+            <nav>
+                <div class="nav-group">
+                    <div class="nav-group-title">Authentication</div>
+                    <a class="nav-item active" onclick="showScreen('login')"><span class="nav-icon">🔐</span> Login &
+                        Role Select</a>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-group-title">Field Responder</div>
+                    <a class="nav-item" onclick="showScreen('fr-map')"><span class="nav-icon">🗺️</span> Live Hazard
+                        Map</a>
+                    <a class="nav-item" onclick="showScreen('fr-shelters')"><span class="nav-icon">🏠</span> Nearby
+                        Shelters</a>
+                    <a class="nav-item" onclick="showScreen('fr-allocate')"><span class="nav-icon">👤</span> Allocate
+                        Evacuee</a>
+                    <a class="nav-item" onclick="showScreen('fr-offline')"><span class="nav-icon">📡</span> Offline
+                        Mode</a>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-group-title">Shelter Administrator</div>
+                    <a class="nav-item" onclick="showScreen('sa-dash')"><span class="nav-icon">📊</span> Admin
+                        Dashboard</a>
+                    <a class="nav-item" onclick="showScreen('sa-checkin')"><span class="nav-icon">📋</span> Digital
+                        Check-In</a>
+                    <a class="nav-item" onclick="showScreen('sa-occupancy')"><span class="nav-icon">📈</span> Occupancy
+                        Status</a>
+                    <a class="nav-item" onclick="showScreen('sa-facilities')"><span class="nav-icon">⚙️</span> Facility
+                        Mgmt</a>
+                </div>
+                <div class="nav-group">
+                    <div class="nav-group-title">Command Officer</div>
+                    <a class="nav-item" onclick="showScreen('co-dash')"><span class="nav-icon">🎯</span> Command
+                        Dashboard</a>
+                    <a class="nav-item" onclick="showScreen('co-alerts')"><span class="nav-icon">🔔</span> Alerts &
+                        Predictions</a>
+                    <a class="nav-item" onclick="showScreen('co-analytics')"><span class="nav-icon">📉</span>
+                        Analytics</a>
+                    <a class="nav-item" onclick="showScreen('co-redist')"><span class="nav-icon">🔄</span>
+                        Redistribution</a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="main-content">
+            <div class="screen-title-bar" id="screenTitleBar">
+                <h1 id="screenTitle">Login & Role Selection</h1>
+                <p id="screenDesc">Secure authentication with role-based access control</p>
+            </div>
+
+            <!-- ========== 1. LOGIN SCREEN ========== -->
+            <div id="login" class="screen active">
+                <div class="phone-frame">
+                    <div class="status-bar"><span>9:41</span>
+                        <div class="status-bar-right">📶 🔋 100%</div>
+                    </div>
+                    <div class="phone-body">
+                        <div class="login-screen">
+                            <div class="login-logo">
+                                <div class="logo-emblem">🏥</div>
+                                <h1>ESAMS</h1>
+                                <p class="subtitle">Emergency Shelter Availability<br>Management System</p>
+                            </div>
+                            <div class="login-form">
+                                <div class="form-field"><label>Officer ID</label><input type="text"
+                                        placeholder="Enter your officer ID"></div>
+                                <div class="form-field"><label>Password</label><input type="password"
+                                        placeholder="••••••••"></div>
+                                <button class="btn btn-primary btn-large">🔒 Secure Sign In</button>
+                            </div>
+                            <div class="role-selector">
+                                <p class="section-label">Quick Role Access</p>
+                                <div class="role-cards">
+                                    <div class="role-card" onclick="showScreen('fr-map')">
+                                        <div class="role-icon">🚗</div>
+                                        <div class="role-name">Field<br>Responder</div>
+                                    </div>
+                                    <div class="role-card" onclick="showScreen('sa-dash')">
+                                        <div class="role-icon">🏢</div>
+                                        <div class="role-name">Shelter<br>Admin</div>
+                                    </div>
+                                    <div class="role-card" onclick="showScreen('co-dash')">
+                                        <div class="role-icon">📊</div>
+                                        <div class="role-name">Command<br>Officer</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="login-footer">
+                                <div class="offline-badge"><span class="dot green"></span> Offline mode available</div>
+                                <p style="margin-top:8px">v2.4.1 · District Administration</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== 2. FIELD RESPONDER - MAP ========== -->
+            <div id="fr-map" class="screen">
+                <div class="phone-frame">
+                    <div class="status-bar"><span>9:41</span>
+                        <div class="status-bar-right"><span class="pulse-dot"></span> Online 📶 🔋</div>
+                    </div>
+                    <div class="phone-body">
+                        <div class="app-bar">
+                            <div class="app-bar-left">
+                                <div class="app-bar-title">
+                                    <h2>Live Hazard Map</h2>
+                                    <p>District Zone-5 · GIS Active</p>
+                                </div>
+                            </div>
+                            <div class="app-bar-actions"><button class="icon-btn">🔍</button><button
+                                    class="icon-btn">⚙️</button></div>
+                        </div>
+                        <div class="alert-strip">⚠️ <strong>Cyclone VARDAH</strong> — Cat.3 — Landfall ETA 12h</div>
+                        <div class="map-view">
+                            <svg viewBox="0 0 375 220">
+                                <rect width="375" height="220" fill="none" />
+                                <circle cx="90" cy="65" r="45" fill="#E53935" opacity="0.15" />
+                                <circle cx="90" cy="65" r="45" fill="none" stroke="#E53935" stroke-width="1.5"
+                                    stroke-dasharray="4,3" />
+                                <text x="90" y="68" text-anchor="middle" font-size="9" fill="#E53935"
+                                    font-weight="600">FLOOD ZONE A</text>
+                                <circle cx="260" cy="160" r="35" fill="#F57F17" opacity="0.12" />
+                                <circle cx="260" cy="160" r="35" fill="none" stroke="#F57F17" stroke-width="1.5"
+                                    stroke-dasharray="4,3" />
+                                <text x="260" y="163" text-anchor="middle" font-size="9" fill="#F57F17"
+                                    font-weight="600">RISK ZONE B</text>
+                                <circle cx="280" cy="60" r="10" fill="#43A047" /><text x="280" y="80"
+                                    text-anchor="middle" font-size="8" fill="currentColor">School (62%)</text>
+                                <circle cx="160" cy="140" r="10" fill="#43A047" /><text x="160" y="160"
+                                    text-anchor="middle" font-size="8" fill="currentColor">Hall A (45%)</text>
+                                <circle cx="320" cy="170" r="10" fill="#FFA000" /><text x="320" y="190"
+                                    text-anchor="middle" font-size="8" fill="currentColor">Complex (84%)</text>
+                                <circle cx="187" cy="110" r="7" fill="#1565C0" />
+                                <circle cx="187" cy="110" r="12" fill="none" stroke="#1565C0" stroke-width="2"
+                                    opacity="0.5" />
+                                <text x="187" y="98" text-anchor="middle" font-size="8" fill="#1565C0"
+                                    font-weight="700">YOU</text>
+                            </svg>
+                            <div class="map-controls">
+                                <button
+                                    class="active">Flood</button><button>Cyclone</button><button>Heat</button><button>Shelters</button>
+                            </div>
+                            <div class="map-legend-row">
+                                <div class="legend-chip"><span class="dot red"></span> High Hazard</div>
+                                <div class="legend-chip"><span class="dot green"></span> Shelter</div>
+                                <div class="legend-chip"><span class="dot blue"></span> Your Location</div>
+                            </div>
+                        </div>
+                        <div class="kpi-row">
+                            <div class="kpi-box safe">
+                                <div class="kpi-val">3</div>
+                                <div class="kpi-label">Nearby</div>
+                            </div>
+                            <div class="kpi-box warn">
+                                <div class="kpi-val">1</div>
+                                <div class="kpi-label">At Risk</div>
+                            </div>
+                            <div class="kpi-box">
+                                <div class="kpi-val">180</div>
+                                <div class="kpi-label">Beds Free</div>
+                            </div>
+                            <div class="kpi-box">
+                                <div class="kpi-val">📡</div>
+                                <div class="kpi-label">Online</div>
+                            </div>
+                        </div>
+                        <div class="content-area">
+                            <button class="btn btn-primary btn-large" onclick="showScreen('fr-shelters')">📍 View Nearby
+                                Shelters</button>
+                            <div style="height:8px"></div>
+                            <button class="btn btn-outline" onclick="showScreen('fr-offline')">📱 SMS Fallback
+                                Mode</button>
+                        </div>
+                    </div>
+                    <div class="bottom-nav">
+                        <button class="bottom-nav-item active"><span class="bnav-icon">🗺️</span>Map</button>
+                        <button class="bottom-nav-item" onclick="showScreen('fr-shelters')"><span
+                                class="bnav-icon">🏠</span>Shelters</button>
+                        <button class="bottom-nav-item" onclick="showScreen('fr-allocate')"><span
+                                class="bnav-icon">👤</span>Allocate</button>
+                        <button class="bottom-nav-item" onclick="showScreen('fr-offline')"><span
+                                class="bnav-icon">📡</span>Offline</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== 3. FIELD RESPONDER - NEARBY SHELTERS ========== -->
+            <div id="fr-shelters" class="screen">
+                <div class="phone-frame">
+                    <div class="status-bar"><span>9:41</span>
+                        <div class="status-bar-right">📶 🔋</div>
+                    </div>
+                    <div class="phone-body">
+                        <div class="app-bar">
+                            <div class="app-bar-left"><button class="back-btn" onclick="showScreen('fr-map')">←</button>
+                                <div class="app-bar-title">
+                                    <h2>Nearby Shelters</h2>
+                                    <p>3 shelters within 5 km</p>
+                                </div>
+                            </div>
+                            <div class="app-bar-actions"><button class="icon-btn">🔍</button></div>
+                        </div>
+                        <div style="display:flex;gap:6px;padding:10px 16px">
+                            <button class="btn btn-sm btn-primary">All</button>
+                            <button class="btn btn-sm btn-secondary">Available</button>
+                            <button class="btn btn-sm btn-secondary">Medical</button>
+                            <button class="btn btn-sm btn-secondary">Accessible</button>
+                        </div>
+                        <div class="content-area">
+                            <div class="shelter-card">
+                                <div class="shelter-card-header">
+                                    <h4>Central High School</h4><span class="dist">2.3 km</span>
+                                </div>
+                                <div class="cap-label"><span>Occupancy</span><span>320 / 500 (64%)</span></div>
+                                <div class="cap-bar">
+                                    <div class="cap-fill green" style="width:64%"></div>
+                                </div>
+                                <div class="tags"><span class="badge badge-safe">🍽️ Food</span><span
+                                        class="badge badge-info">♿ Accessible</span><span class="badge badge-info">⚕️
+                                        Medical</span></div>
+                                <button class="allocate-btn" onclick="showScreen('fr-allocate')">📋 Allocate
+                                    Evacuee</button>
+                            </div>
+                            <div class="shelter-card">
+                                <div class="shelter-card-header">
+                                    <h4>Community Hall West</h4><span class="dist">3.1 km</span>
+                                </div>
+                                <div class="cap-label"><span>Occupancy</span><span>312 / 400 (78%)</span></div>
+                                <div class="cap-bar">
+                                    <div class="cap-fill yellow" style="width:78%"></div>
+                                </div>
+                                <div class="tags"><span class="badge badge-safe">🍽️ Food</span><span
+                                        class="badge badge-warn">⚠️ Filling Up</span></div>
+                                <button class="allocate-btn" onclick="showScreen('fr-allocate')">📋 Allocate
+                                    Evacuee</button>
+                            </div>
+                            <div class="shelter-card" style="opacity:0.7">
+                                <div class="shelter-card-header">
+                                    <h4>Sports Complex South</h4><span class="dist"
+                                        style="color:var(--status-critical)">4.5 km</span>
+                                </div>
+                                <div class="cap-label"><span>Occupancy</span><span
+                                        style="color:var(--status-critical);font-weight:700">475 / 500 (95%)</span>
+                                </div>
+                                <div class="cap-bar">
+                                    <div class="cap-fill red" style="width:95%"></div>
+                                </div>
+                                <div class="alert-strip" style="margin:8px -12px -12px;border-radius:0 0 12px 12px">⚠️
+                                    AT CAPACITY — Cannot Accept New Evacuees</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-nav">
+                        <button class="bottom-nav-item" onclick="showScreen('fr-map')"><span
+                                class="bnav-icon">🗺️</span>Map</button>
+                        <button class="bottom-nav-item active"><span class="bnav-icon">🏠</span>Shelters</button>
+                        <button class="bottom-nav-item" onclick="showScreen('fr-allocate')"><span
+                                class="bnav-icon">👤</span>Allocate</button>
+                        <button class="bottom-nav-item" onclick="showScreen('fr-offline')"><span
+                                class="bnav-icon">📡</span>Offline</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== 4. FIELD RESPONDER - ALLOCATE ========== -->
+            <div id="fr-allocate" class="screen">
+                <div class="phone-frame">
+                    <div class="status-bar"><span>9:41</span>
+                        <div class="status-bar-right">📶 🔋</div>
+                    </div>
+                    <div class="phone-body">
+                        <div class="app-bar">
+                            <div class="app-bar-left"><button class="back-btn"
+                                    onclick="showScreen('fr-shelters')">←</button>
+                                <div class="app-bar-title">
+                                    <h2>Allocate Evacuee</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-area" style="padding-top:12px">
+                            <div class="card" style="background:var(--accent-light);border-color:var(--accent-primary)">
+                                <div style="font-size:12px;font-weight:700;color:var(--accent-primary)">📍 Selected
+                                    Shelter</div>
+                                <div style="font-size:15px;font-weight:700;color:var(--text-primary);margin-top:2px">
+                                    Central High School</div>
+                                <div style="font-size:11px;color:var(--text-secondary)">2.3 km away · 180 beds available
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <h3>Evacuee Details</h3>
+                            <div class="form-field"><label>Full Name *</label><input type="text"
+                                    placeholder="Enter full name"></div>
+                            <div class="form-field"><label>Age</label><input type="number" placeholder="Age"></div>
+                            <div class="form-field"><label>ID Number (Optional)</label><input type="text"
+                                    placeholder="Aadhar / Voter ID"></div>
+                        </div>
+                        <div class="form-section">
+                            <h3>Vulnerability Tags</h3>
+                            <div class="vuln-tags">
+                                <div class="vuln-tag selected"><span class="tag-icon">👴</span><span
+                                        class="tag-text">Elderly (>65 years)</span><span class="tag-check">✓</span>
+                                </div>
+                                <div class="vuln-tag"><span class="tag-icon">♿</span><span class="tag-text">Disabled /
+                                        Mobility</span><span class="tag-check"></span></div>
+                                <div class="vuln-tag"><span class="tag-icon">🏥</span><span class="tag-text">Medical
+                                        Condition</span><span class="tag-check"></span></div>
+                                <div class="vuln-tag"><span class="tag-icon">👶</span><span class="tag-text">Accompanied
+                                        Child</span><span class="tag-check"></span></div>
+                                <div class="vuln-tag"><span class="tag-icon">🤰</span><span class="tag-text">Pregnant /
+                                        Nursing</span><span class="tag-check"></span></div>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <h3>Special Notes</h3>
+                            <div class="form-field"><textarea placeholder="Medical requirements, family details..."
+                                    style="height:60px;resize:none"></textarea></div>
+                            <button class="btn btn-primary btn-large">✓ Confirm Allocation</button>
+                            <div style="height:8px"></div>
+                            <button class="btn btn-secondary">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== 5. FIELD RESPONDER - OFFLINE ========== -->
+            <div id="fr-offline" class="screen">
+                <div class="phone-frame">
+                    <div class="status-bar"><span>9:41</span>
+                        <div class="status-bar-right">❌ No Signal 🔋</div>
+                    </div>
+                    <div class="phone-body">
+                        <div class="offline-bar">🔴 NO INTERNET CONNECTION — Offline Mode Active</div>
+                        <div class="app-bar">
+                            <div class="app-bar-left"><button class="back-btn" onclick="showScreen('fr-map')">←</button>
+                                <div class="app-bar-title">
+                                    <h2>Offline Mode</h2>
+                                    <p>Last sync: 14 min ago</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-area" style="padding-top:12px">
+                            <div class="offline-card">
+                                <div class="oc-icon">🗺️</div>
+                                <h4>Cached Offline Map</h4>
+                                <p>Last updated: Today 2:30 PM</p><button class="btn btn-sm btn-secondary"
+                                    style="margin-top:8px">View Offline Map</button>
+                            </div>
+                            <div class="offline-card">
+                                <div class="oc-icon">📝</div>
+                                <h4>Pending Allocations</h4>
+                                <p>3 entries waiting to sync</p><button class="btn btn-sm btn-secondary"
+                                    style="margin-top:8px">View Sync Queue</button>
+                            </div>
+                            <div class="sms-box">
+                                <h4>📱 SMS Fallback</h4>
+                                <p>Send critical shelter data via SMS to Command Center</p><button
+                                    class="btn btn-sm btn-danger" style="margin-top:8px;width:auto">🚨 Trigger SMS
+                                    Report</button>
+                            </div>
+                            <div class="info-box">
+                                <h4>ℹ️ Offline Operations</h4>
+                                <ul>
+                                    <li>All allocations saved locally</li>
+                                    <li>Use SMS fallback for emergencies</li>
+                                    <li>Data auto-syncs when online</li>
+                                    <li>Verify with shelter admin when possible</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-nav">
+                        <button class="bottom-nav-item" onclick="showScreen('fr-map')"><span
+                                class="bnav-icon">🗺️</span>Map</button>
+                        <button class="bottom-nav-item"><span class="bnav-icon">🏠</span>Shelters</button>
+                        <button class="bottom-nav-item"><span class="bnav-icon">👤</span>Allocate</button>
+                        <button class="bottom-nav-item active"><span class="bnav-icon">📡</span>Offline</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PART 2: Shelter Admin + Command screens will be appended -->
+            <!-- ========== 6. SHELTER ADMIN - DASHBOARD ========== -->
+            <div id="sa-dash" class="screen">
+                <div class="phone-frame">
+                    <div class="status-bar"><span>9:41</span>
+                        <div class="status-bar-right"><span class="pulse-dot"></span> 📶 🔋</div>
+                    </div>
+                    <div class="phone-body">
+                        <div class="app-bar">
+                            <div class="app-bar-left">
+                                <div class="app-bar-title">
+                                    <h2>Central High School</h2>
+                                    <p>Shelter Admin Dashboard</p>
+                                </div>
+                            </div>
+                            <div class="app-bar-actions"><button class="icon-btn">🔔</button><button
+                                    class="icon-btn">⚙️</button></div>
+                        </div>
+                        <div class="content-area" style="padding-top:12px">
+                            <div class="occ-gauge">
+                                <div class="gauge-ring">
+                                    <svg viewBox="0 0 120 120">
+                                        <circle cx="60" cy="60" r="52" fill="none" stroke-width="10" class="bg" />
+                                        <circle cx="60" cy="60" r="52" fill="none" stroke-width="10" stroke="#43A047"
+                                            stroke-dasharray="209 118" stroke-linecap="round" />
+                                    </svg>
+                                    <div class="gauge-center"><span class="gauge-num">64%</span><span
+                                            class="gauge-label">Occupied</span></div>
+                                </div>
+                                <div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-top:8px">320
+                                    / 500 Occupants</div>
+                                <div style="font-size:11px;color:var(--text-secondary)">Last updated: 2 minutes ago
+                                </div>
+                            </div>
+                            <div class="section-header">
+                                <h3>Quick Actions</h3>
+                            </div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
+                                <button class="btn btn-primary" onclick="showScreen('sa-checkin')"
+                                    style="flex-direction:column;padding:16px 8px"><span
+                                        style="font-size:24px">📋</span><span>Check-In</span></button>
+                                <button class="btn btn-secondary" onclick="showScreen('sa-occupancy')"
+                                    style="flex-direction:column;padding:16px 8px"><span
+                                        style="font-size:24px">📊</span><span>Occupancy</span></button>
+                                <button class="btn btn-secondary" onclick="showScreen('sa-facilities')"
+                                    style="flex-direction:column;padding:16px 8px"><span
+                                        style="font-size:24px">🏥</span><span>Facilities</span></button>
+                                <button class="btn btn-secondary" style="flex-direction:column;padding:16px 8px"><span
+                                        style="font-size:24px">📞</span><span>Support</span></button>
+                            </div>
+                            <div class="section-header">
+                                <h3>Facility Status</h3>
+                            </div>
+                            <div class="facility-row">
+                                <div class="facility-left"><span class="fac-icon">🍽️</span>
+                                    <div>
+                                        <div class="fac-name">Food Service</div>
+                                        <div class="fac-detail">960 meals/day</div>
+                                    </div>
+                                </div><span class="badge badge-safe">Active</span>
+                            </div>
+                            <div class="facility-row">
+                                <div class="facility-left"><span class="fac-icon">⚕️</span>
+                                    <div>
+                                        <div class="fac-name">Medical Clinic</div>
+                                        <div class="fac-detail">2 staff on-site</div>
+                                    </div>
+                                </div><span class="badge badge-safe">Active</span>
+                            </div>
+                            <div class="facility-row">
+                                <div class="facility-left"><span class="fac-icon">♿</span>
+                                    <div>
+                                        <div class="fac-name">Accessibility</div>
+                                        <div class="fac-detail">Ramps + toilets</div>
+                                    </div>
+                                </div><span class="badge badge-safe">Enabled</span>
+                            </div>
+                            <div class="facility-row">
+                                <div class="facility-left"><span class="fac-icon">🛏️</span>
+                                    <div>
+                                        <div class="fac-name">Rest Quarters</div>
+                                        <div class="fac-detail">Under maintenance</div>
+                                    </div>
+                                </div><span class="badge badge-warn">Limited</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-nav">
+                        <button class="bottom-nav-item active"><span class="bnav-icon">📊</span>Dashboard</button>
+                        <button class="bottom-nav-item" onclick="showScreen('sa-checkin')"><span
+                                class="bnav-icon">📋</span>Check-In</button>
+                        <button class="bottom-nav-item" onclick="showScreen('sa-occupancy')"><span
+                                class="bnav-icon">📈</span>Occupancy</button>
+                        <button class="bottom-nav-item" onclick="showScreen('sa-facilities')"><span
+                                class="bnav-icon">⚙️</span>Facilities</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== 7. SHELTER ADMIN - CHECK-IN ========== -->
+            <div id="sa-checkin" class="screen">
+                <div class="phone-frame">
+                    <div class="status-bar"><span>9:41</span>
+                        <div class="status-bar-right">📶 🔋</div>
+                    </div>
+                    <div class="phone-body">
+                        <div class="app-bar">
+                            <div class="app-bar-left"><button class="back-btn"
+                                    onclick="showScreen('sa-dash')">←</button>
+                                <div class="app-bar-title">
+                                    <h2>Digital Check-In</h2>
+                                </div>
+                            </div>
+                            <div class="app-bar-actions"><button class="icon-btn">📷</button></div>
+                        </div>
+                        <div class="form-section">
+                            <h3>Personal Information</h3>
+                            <div class="form-field"><label>Full Name *</label><input type="text"
+                                    placeholder="Enter full name"></div>
+                            <div class="form-field"><label>ID Number</label><input type="text"
+                                    placeholder="Aadhar / Voter ID"></div>
+                            <div class="form-field"><label>Age</label><input type="number" placeholder="Age"></div>
+                        </div>
+                        <div class="form-section">
+                            <h3>Family Details</h3>
+                            <div class="form-field"><label>Family Size</label><input type="number"
+                                    placeholder="Number of members"></div>
+                            <div class="form-field"><label>Contact Number</label><input type="tel"
+                                    placeholder="+91 XXXXX XXXXX"></div>
+                        </div>
+                        <div class="form-section">
+                            <h3>Special Needs</h3>
+                            <div style="display:flex;flex-wrap:wrap;gap:6px">
+                                <span class="badge badge-neutral"
+                                    style="padding:8px 12px;font-size:12px;cursor:pointer">👴 Elderly</span>
+                                <span class="badge badge-neutral"
+                                    style="padding:8px 12px;font-size:12px;cursor:pointer">♿ Disabled</span>
+                                <span class="badge badge-info"
+                                    style="padding:8px 12px;font-size:12px;cursor:pointer;border:1.5px solid var(--accent-primary)">🏥
+                                    Medical</span>
+                                <span class="badge badge-neutral"
+                                    style="padding:8px 12px;font-size:12px;cursor:pointer">🤰 Pregnant</span>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <h3>Room Assignment</h3>
+                            <div class="form-field"><label>Building</label><select>
+                                    <option>Building A (Families)</option>
+                                    <option>Building B (Elderly)</option>
+                                    <option>Building C (General)</option>
+                                </select></div>
+                            <div class="form-field"><label>Room Number</label><input type="text"
+                                    placeholder="e.g., A-201"></div>
+                            <button class="btn btn-primary btn-large">✓ Complete Check-In</button>
+                            <div style="height:8px"></div>
+                            <button class="btn btn-secondary">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== 8. SHELTER ADMIN - OCCUPANCY ========== -->
+            <div id="sa-occupancy" class="screen">
+                <div class="phone-frame">
+                    <div class="status-bar"><span>9:41</span>
+                        <div class="status-bar-right">📶 🔋</div>
+                    </div>
+                    <div class="phone-body">
+                        <div class="app-bar">
+                            <div class="app-bar-left"><button class="back-btn"
+                                    onclick="showScreen('sa-dash')">←</button>
+                                <div class="app-bar-title">
+                                    <h2>Occupancy Status</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kpi-row">
+                            <div class="kpi-box safe">
+                                <div class="kpi-val">320</div>
+                                <div class="kpi-label">Current</div>
+                            </div>
+                            <div class="kpi-box">
+                                <div class="kpi-val">500</div>
+                                <div class="kpi-label">Capacity</div>
+                            </div>
+                            <div class="kpi-box">
+                                <div class="kpi-val">180</div>
+                                <div class="kpi-label">Available</div>
+                            </div>
+                        </div>
+                        <div class="content-area">
+                            <div class="card" style="text-align:center;padding:16px">
+                                <div style="font-size:13px;font-weight:700;color:var(--status-safe)">STATUS: HEALTHY
+                                    (64%)</div>
+                                <div class="cap-bar large" style="margin:12px 0">
+                                    <div class="cap-fill green" style="width:64%"></div>
+                                </div>
+                                <div
+                                    style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-tertiary)">
+                                    <span>0%</span><span>70%</span><span>90%</span><span>100%</span>
+                                </div>
+                                <div style="display:flex;gap:12px;justify-content:center;margin-top:12px">
+                                    <span class="badge badge-safe">● <70% Safe</span>
+                                            <span class="badge badge-warn">● 70-90% Caution</span>
+                                            <span class="badge badge-danger">● >90% Critical</span>
+                                </div>
+                            </div>
+                            <div class="section-header">
+                                <h3>Building Breakdown</h3>
+                            </div>
+                            <div class="card">
+                                <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600">
+                                    <span>Building A (Families)</span><span>120/150</span>
+                                </div>
+                                <div class="cap-bar" style="margin-top:6px">
+                                    <div class="cap-fill yellow" style="width:80%"></div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600">
+                                    <span>Building B (Elderly)</span><span>80/100</span>
+                                </div>
+                                <div class="cap-bar" style="margin-top:6px">
+                                    <div class="cap-fill yellow" style="width:80%"></div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600">
+                                    <span>Building C (General)</span><span>120/250</span>
+                                </div>
+                                <div class="cap-bar" style="margin-top:6px">
+                                    <div class="cap-fill green" style="width:48%"></div>
+                                </div>
+                            </div>
+                            <div class="info-box">
+                                <h4>📈 Trend</h4>
+                                <ul>
+                                    <li>Occupancy increasing at 15 persons/hr</li>
+                                    <li>Estimated full capacity: 8:30 PM</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-nav">
+                        <button class="bottom-nav-item" onclick="showScreen('sa-dash')"><span
+                                class="bnav-icon">📊</span>Dashboard</button>
+                        <button class="bottom-nav-item" onclick="showScreen('sa-checkin')"><span
+                                class="bnav-icon">📋</span>Check-In</button>
+                        <button class="bottom-nav-item active"><span class="bnav-icon">📈</span>Occupancy</button>
+                        <button class="bottom-nav-item" onclick="showScreen('sa-facilities')"><span
+                                class="bnav-icon">⚙️</span>Facilities</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== 9. SHELTER ADMIN - FACILITIES ========== -->
+            <div id="sa-facilities" class="screen">
+                <div class="phone-frame">
+                    <div class="status-bar"><span>9:41</span>
+                        <div class="status-bar-right">📶 🔋</div>
+                    </div>
+                    <div class="phone-body">
+                        <div class="app-bar">
+                            <div class="app-bar-left"><button class="back-btn"
+                                    onclick="showScreen('sa-dash')">←</button>
+                                <div class="app-bar-title">
+                                    <h2>Facility Management</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-area" style="padding-top:12px">
+                            <div class="facility-row">
+                                <div class="facility-left"><span class="fac-icon">🍽️</span>
+                                    <div>
+                                        <div class="fac-name">Food Service</div>
+                                        <div class="fac-detail">Meals/Day: 960 · Staff: 12</div>
+                                    </div>
+                                </div>
+                                <div class="toggle on"></div>
+                            </div>
+                            <div class="facility-row">
+                                <div class="facility-left"><span class="fac-icon">🧼</span>
+                                    <div>
+                                        <div class="fac-name">Sanitation</div>
+                                        <div class="fac-detail">Toilets: 15/20 · Water: OK</div>
+                                    </div>
+                                </div>
+                                <div class="toggle on"></div>
+                            </div>
+                            <div class="facility-row">
+                                <div class="facility-left"><span class="fac-icon">⚕️</span>
+                                    <div>
+                                        <div class="fac-name">Medical Clinic</div>
+                                        <div class="fac-detail">Doctor: 1 · Nurses: 2</div>
+                                    </div>
+                                </div>
+                                <div class="toggle on"></div>
+                            </div>
+                            <div class="facility-row">
+                                <div class="facility-left"><span class="fac-icon">♿</span>
+                                    <div>
+                                        <div class="fac-name">Accessibility</div>
+                                        <div class="fac-detail">Ramps: 2 · Toilets: 4</div>
+                                    </div>
+                                </div>
+                                <div class="toggle on"></div>
+                            </div>
+                            <div class="facility-row">
+                                <div class="facility-left"><span class="fac-icon">🔋</span>
+                                    <div>
+                                        <div class="fac-name">Power Supply</div>
+                                        <div class="fac-detail">Generator: 40h fuel</div>
+                                    </div>
+                                </div>
+                                <div class="toggle on"></div>
+                            </div>
+                            <div class="facility-row" style="opacity:0.6">
+                                <div class="facility-left"><span class="fac-icon">🛏️</span>
+                                    <div>
+                                        <div class="fac-name">Medical Ward</div>
+                                        <div class="fac-detail">Under maintenance · ETA: 4h</div>
+                                    </div>
+                                </div>
+                                <div class="toggle"></div>
+                            </div>
+                            <div class="alert-strip warning" style="border-radius:var(--radius-md);margin-top:12px">⚠️
+                                Water pump maintenance needed — Schedule ASAP</div>
+                        </div>
+                    </div>
+                    <div class="bottom-nav">
+                        <button class="bottom-nav-item" onclick="showScreen('sa-dash')"><span
+                                class="bnav-icon">📊</span>Dashboard</button>
+                        <button class="bottom-nav-item" onclick="showScreen('sa-checkin')"><span
+                                class="bnav-icon">📋</span>Check-In</button>
+                        <button class="bottom-nav-item" onclick="showScreen('sa-occupancy')"><span
+                                class="bnav-icon">📈</span>Occupancy</button>
+                        <!-- Command Officer screens and JS in next section -->
+                        <!-- ========== 10. COMMAND - DASHBOARD ========== -->
+                        <div id="co-dash" class="screen">
+                            <div class="phone-frame">
+                                <div class="status-bar"><span>9:41</span>
+                                    <div class="status-bar-right"><span class="pulse-dot"></span> LIVE 📶 🔋</div>
+                                </div>
+                                <div class="phone-body">
+                                    <div class="app-bar">
+                                        <div class="app-bar-left">
+                                            <div class="app-bar-title">
+                                                <h2>Command Center</h2>
+                                                <p>District Overview · All Zones</p>
+                                            </div>
+                                        </div>
+                                        <div class="app-bar-actions"><button class="icon-btn">🔔</button><button
+                                                class="icon-btn">⚙️</button></div>
+                                    </div>
+                                    <div class="alert-strip">⚠️ <strong>2 CRITICAL ALERTS</strong> — Overcrowding
+                                        predicted at 2 shelters</div>
+                                    <div class="kpi-row">
+                                        <div class="kpi-box">
+                                            <div class="kpi-val">47</div>
+                                            <div class="kpi-label">Shelters</div>
+                                        </div>
+                                        <div class="kpi-box safe">
+                                            <div class="kpi-val">12.8K</div>
+                                            <div class="kpi-label">Evacuees</div>
+                                        </div>
+                                        <div class="kpi-box warn">
+                                            <div class="kpi-val">67%</div>
+                                            <div class="kpi-label">Avg Occ.</div>
+                                        </div>
+                                        <div class="kpi-box danger">
+                                            <div class="kpi-val">5</div>
+                                            <div class="kpi-label">Alerts</div>
+                                        </div>
+                                    </div>
+                                    <div class="map-view" style="height:160px">
+                                        <svg viewBox="0 0 375 160">
+                                            <rect width="375" height="160" fill="none" />
+                                            <text x="187" y="20" text-anchor="middle" font-size="10"
+                                                fill="var(--text-tertiary)" font-weight="600">DISTRICT MAP
+                                                OVERVIEW</text>
+                                            <circle cx="80" cy="70" r="18" fill="#43A047" opacity="0.2" />
+                                            <circle cx="80" cy="70" r="5" fill="#43A047" /><text x="80" y="100"
+                                                text-anchor="middle" font-size="8" fill="currentColor">Zone A
+                                                (58%)</text>
+                                            <circle cx="190" cy="80" r="18" fill="#FFA000" opacity="0.2" />
+                                            <circle cx="190" cy="80" r="5" fill="#FFA000" /><text x="190" y="110"
+                                                text-anchor="middle" font-size="8" fill="currentColor">Zone B
+                                                (76%)</text>
+                                            <circle cx="300" cy="65" r="18" fill="#E53935" opacity="0.2" />
+                                            <circle cx="300" cy="65" r="5" fill="#E53935" /><text x="300" y="95"
+                                                text-anchor="middle" font-size="8" fill="currentColor">Zone C
+                                                (91%)</text>
+                                            <circle cx="140" cy="130" r="14" fill="#43A047" opacity="0.2" />
+                                            <circle cx="140" cy="130" r="4" fill="#43A047" /><text x="140" y="150"
+                                                text-anchor="middle" font-size="7" fill="currentColor">Zone D
+                                                (42%)</text>
+                                            <circle cx="260" cy="125" r="14" fill="#FFA000" opacity="0.2" />
+                                            <circle cx="260" cy="125" r="4" fill="#FFA000" /><text x="260" y="145"
+                                                text-anchor="middle" font-size="7" fill="currentColor">Zone E
+                                                (72%)</text>
+                                        </svg>
+                                    </div>
+                                    <div class="section-header">
+                                        <h3>Shelter Status</h3><button class="see-all"
+                                            onclick="showScreen('co-alerts')">View All →</button>
+                                    </div>
+                                    <div class="content-area">
+                                        <div class="shelter-status-card">
+                                            <div class="ssc-dot" style="background:#E53935"></div>
+                                            <div class="ssc-info">
+                                                <div class="ssc-name">Sports Complex</div>
+                                                <div class="ssc-meta">Zone C · Cap: 500</div>
+                                            </div>
+                                            <div class="ssc-pct" style="color:#E53935">91%</div>
+                                        </div>
+                                        <div class="shelter-status-card">
+                                            <div class="ssc-dot" style="background:#E53935"></div>
+                                            <div class="ssc-info">
+                                                <div class="ssc-name">Relief Camp B</div>
+                                                <div class="ssc-meta">Zone C · Cap: 350</div>
+                                            </div>
+                                            <div class="ssc-pct" style="color:#E53935">89%</div>
+                                        </div>
+                                        <div class="shelter-status-card">
+                                            <div class="ssc-dot" style="background:#FFA000"></div>
+                                            <div class="ssc-info">
+                                                <div class="ssc-name">Community Hall A</div>
+                                                <div class="ssc-meta">Zone B · Cap: 400</div>
+                                            </div>
+                                            <div class="ssc-pct" style="color:#FFA000">78%</div>
+                                        </div>
+                                        <div class="shelter-status-card">
+                                            <div class="ssc-dot" style="background:#43A047"></div>
+                                            <div class="ssc-info">
+                                                <div class="ssc-name">Central High School</div>
+                                                <div class="ssc-meta">Zone A · Cap: 500</div>
+                                            </div>
+                                            <div class="ssc-pct" style="color:#43A047">64%</div>
+                                        </div>
+                                        <div class="shelter-status-card">
+                                            <div class="ssc-dot" style="background:#43A047"></div>
+                                            <div class="ssc-info">
+                                                <div class="ssc-name">Municipal School</div>
+                                                <div class="ssc-meta">Zone D · Cap: 300</div>
+                                            </div>
+                                            <div class="ssc-pct" style="color:#43A047">45%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottom-nav">
+                                    <button class="bottom-nav-item active"><span
+                                            class="bnav-icon">🎯</span>Dashboard</button>
+                                    <button class="bottom-nav-item" onclick="showScreen('co-alerts')"><span
+                                            class="bnav-icon">🔔</span>Alerts</button>
+                                    <button class="bottom-nav-item" onclick="showScreen('co-analytics')"><span
+                                            class="bnav-icon">📉</span>Analytics</button>
+                                    <button class="bottom-nav-item" onclick="showScreen('co-redist')"><span
+                                            class="bnav-icon">🔄</span>Redist.</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ========== 11. COMMAND - ALERTS & PREDICTIONS ========== -->
+                        <div id="co-alerts" class="screen">
+                            <div class="phone-frame">
+                                <div class="status-bar"><span>9:41</span>
+                                    <div class="status-bar-right">📶 🔋</div>
+                                </div>
+                                <div class="phone-body">
+                                    <div class="app-bar">
+                                        <div class="app-bar-left"><button class="back-btn"
+                                                onclick="showScreen('co-dash')">←</button>
+                                            <div class="app-bar-title">
+                                                <h2>Alerts & Predictions</h2>
+                                                <p>AI-powered overcrowding forecast</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content-area" style="padding-top:12px">
+                                        <div class="section-header" style="padding:0 0 6px">
+                                            <h3>🔴 Critical Alerts</h3>
+                                        </div>
+                                        <div class="pred-card">
+                                            <div class="pred-icon critical">🔴</div>
+                                            <div class="pred-body">
+                                                <div class="pred-title">Overcrowding — Sports Complex</div>
+                                                <div class="pred-desc">Predicted to exceed 95% in 2.5 hours. Immediate
+                                                    redistribution required.</div>
+                                                <div class="pred-eta" style="color:var(--status-critical)">⏱ ETA 2.5h
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pred-card">
+                                            <div class="pred-icon critical">🔴</div>
+                                            <div class="pred-body">
+                                                <div class="pred-title">Relief Camp B — Near Capacity</div>
+                                                <div class="pred-desc">Currently at 89%. Intake rate suggests full in 3
+                                                    hours.</div>
+                                                <div class="pred-eta" style="color:var(--status-critical)">⏱ ETA 3h
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="section-header" style="padding:12px 0 6px">
+                                            <h3>🟡 Warnings</h3>
+                                        </div>
+                                        <div class="pred-card">
+                                            <div class="pred-icon warning">🟡</div>
+                                            <div class="pred-body">
+                                                <div class="pred-title">Surge Predicted — Zone C</div>
+                                                <div class="pred-desc">River level rising. 800+ evacuees expected in
+                                                    next 4 hours.</div>
+                                                <div class="pred-eta" style="color:var(--status-caution)">⏱ ETA 4h</div>
+                                            </div>
+                                        </div>
+                                        <div class="pred-card">
+                                            <div class="pred-icon warning">🟡</div>
+                                            <div class="pred-body">
+                                                <div class="pred-title">Medical Supply Low — 3 Shelters</div>
+                                                <div class="pred-desc">First aid supplies below 30% threshold at 3
+                                                    locations.</div>
+                                                <div class="pred-eta" style="color:var(--status-caution)">Action Needed
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="section-header" style="padding:12px 0 6px">
+                                            <h3>🔵 Information</h3>
+                                        </div>
+                                        <div class="pred-card">
+                                            <div class="pred-icon info">🔵</div>
+                                            <div class="pred-body">
+                                                <div class="pred-title">Pre-emptive Redistribution Active</div>
+                                                <div class="pred-desc">42 evacuees auto-rerouted from Camp B → Municipal
+                                                    School.</div>
+                                                <div class="pred-eta" style="color:var(--status-info)">Active</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottom-nav">
+                                    <button class="bottom-nav-item" onclick="showScreen('co-dash')"><span
+                                            class="bnav-icon">🎯</span>Dashboard</button>
+                                    <button class="bottom-nav-item active"><span
+                                            class="bnav-icon">🔔</span>Alerts</button>
+                                    <button class="bottom-nav-item" onclick="showScreen('co-analytics')"><span
+                                            class="bnav-icon">📉</span>Analytics</button>
+                                    <button class="bottom-nav-item" onclick="showScreen('co-redist')"><span
+                                            class="bnav-icon">🔄</span>Redist.</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ========== 12. COMMAND - ANALYTICS ========== -->
+                        <div id="co-analytics" class="screen">
+                            <div class="phone-frame">
+                                <div class="status-bar"><span>9:41</span>
+                                    <div class="status-bar-right">📶 🔋</div>
+                                </div>
+                                <div class="phone-body">
+                                    <div class="app-bar">
+                                        <div class="app-bar-left"><button class="back-btn"
+                                                onclick="showScreen('co-dash')">←</button>
+                                            <div class="app-bar-title">
+                                                <h2>Analytics Summary</h2>
+                                                <p>Real-time performance metrics</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content-area" style="padding-top:12px">
+                                        <div class="section-header" style="padding:0 0 6px">
+                                            <h3>Occupancy Trend (24h)</h3>
+                                        </div>
+                                        <div class="mini-chart">
+                                            <div class="chart-bar" style="height:30%"></div>
+                                            <div class="chart-bar" style="height:35%"></div>
+                                            <div class="chart-bar" style="height:42%"></div>
+                                            <div class="chart-bar" style="height:48%"></div>
+                                            <div class="chart-bar" style="height:55%"></div>
+                                            <div class="chart-bar" style="height:58%"></div>
+                                            <div class="chart-bar" style="height:62%"></div>
+                                            <div class="chart-bar" style="height:64%"></div>
+                                            <div class="chart-bar" style="height:67%;background:var(--status-caution)">
+                                            </div>
+                                            <div class="chart-bar" style="height:70%;background:var(--status-caution)">
+                                            </div>
+                                            <div class="chart-bar" style="height:72%;background:var(--status-caution)">
+                                            </div>
+                                            <div class="chart-bar" style="height:67%"></div>
+                                        </div>
+                                        <div class="section-header" style="padding:8px 0 6px">
+                                            <h3>Key Metrics</h3>
+                                        </div>
+                                        <div class="card">
+                                            <div class="analytics-item"><span class="ana-label">Avg Allocation
+                                                    Time</span>
+                                                <div><span class="ana-value">4.2 min</span> <span class="ana-trend up">↓
+                                                        18%</span></div>
+                                            </div>
+                                            <div class="analytics-item"><span class="ana-label">Occupancy
+                                                    Stability</span>
+                                                <div><span class="ana-value">92.4%</span> <span class="ana-trend up">↑
+                                                        3.1%</span></div>
+                                            </div>
+                                            <div class="analytics-item"><span class="ana-label">AI Optimizations</span>
+                                                <div><span class="ana-value">238</span> <span class="ana-trend up">↑
+                                                        Active</span></div>
+                                            </div>
+                                            <div class="analytics-item"><span class="ana-label">Redistribution
+                                                    Efficiency</span>
+                                                <div><span class="ana-value">87.6%</span> <span class="ana-trend up">↑
+                                                        5.2%</span></div>
+                                            </div>
+                                            <div class="analytics-item"><span class="ana-label">SMS Delivery Rate</span>
+                                                <div><span class="ana-value">98.7%</span> <span
+                                                        class="ana-trend up">✓</span></div>
+                                            </div>
+                                            <div class="analytics-item"><span class="ana-label">Avg Distance to
+                                                    Shelter</span>
+                                                <div><span class="ana-value">2.3 km</span> <span class="ana-trend up">↓
+                                                        0.4</span></div>
+                                            </div>
+                                            <div class="analytics-item"><span class="ana-label">Evacuees
+                                                    Sheltered</span>
+                                                <div><span class="ana-value">12,847</span> <span class="ana-trend up">↑
+                                                        1,240/h</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottom-nav">
+                                    <button class="bottom-nav-item" onclick="showScreen('co-dash')"><span
+                                            class="bnav-icon">🎯</span>Dashboard</button>
+                                    <button class="bottom-nav-item" onclick="showScreen('co-alerts')"><span
+                                            class="bnav-icon">🔔</span>Alerts</button>
+                                    <button class="bottom-nav-item active"><span
+                                            class="bnav-icon">📉</span>Analytics</button>
+                                    <button class="bottom-nav-item" onclick="showScreen('co-redist')"><span
+                                            class="bnav-icon">🔄</span>Redist.</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ========== 13. COMMAND - REDISTRIBUTION ========== -->
+                        <div id="co-redist" class="screen">
+                            <div class="phone-frame">
+                                <div class="status-bar"><span>9:41</span>
+                                    <div class="status-bar-right">📶 🔋</div>
+                                </div>
+                                <div class="phone-body">
+                                    <div class="app-bar">
+                                        <div class="app-bar-left"><button class="back-btn"
+                                                onclick="showScreen('co-dash')">←</button>
+                                            <div class="app-bar-title">
+                                                <h2>Redistribution</h2>
+                                                <p>AI-recommended evacuee transfers</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="alert-strip info" style="border-radius:0">🤖 AI Engine has generated 3
+                                        redistribution recommendations</div>
+                                    <div class="content-area" style="padding-top:12px">
+                                        <div class="redist-card" style="border-left:3px solid var(--status-critical)">
+                                            <div
+                                                style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                                                <span class="badge badge-danger">🔴 URGENT</span><span
+                                                    class="badge badge-neutral">Priority 1</span></div>
+                                            <div class="redist-header"><span class="redist-from">Sports Complex
+                                                    (91%)</span><span class="redist-arrow">→</span><span
+                                                    class="redist-to">Municipal School (45%)</span></div>
+                                            <div class="redist-details"><span>👥 65 evacuees</span><span>📏 3.2
+                                                    km</span><span>⏱ ~25 min</span></div>
+                                            <div class="redist-action" style="display:flex;gap:6px;margin-top:10px">
+                                                <button class="btn btn-primary btn-sm" style="flex:1">✓
+                                                    Approve</button><button class="btn btn-secondary btn-sm"
+                                                    style="flex:1">✎ Modify</button></div>
+                                        </div>
+                                        <div class="redist-card" style="border-left:3px solid var(--status-caution)">
+                                            <div
+                                                style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                                                <span class="badge badge-warn">🟡 RECOMMENDED</span><span
+                                                    class="badge badge-neutral">Priority 2</span></div>
+                                            <div class="redist-header"><span class="redist-from">Relief Camp B
+                                                    (89%)</span><span class="redist-arrow">→</span><span
+                                                    class="redist-to">Temple Grounds (38%)</span></div>
+                                            <div class="redist-details"><span>👥 42 evacuees</span><span>📏 2.1
+                                                    km</span><span>⏱ ~15 min</span></div>
+                                            <div class="redist-action" style="display:flex;gap:6px;margin-top:10px">
+                                                <button class="btn btn-primary btn-sm" style="flex:1">✓
+                                                    Approve</button><button class="btn btn-secondary btn-sm"
+                                                    style="flex:1">✎ Modify</button></div>
+                                        </div>
+                                        <div class="redist-card" style="border-left:3px solid var(--status-info)">
+                                            <div
+                                                style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                                                <span class="badge badge-info">🔵 PRE-EMPTIVE</span><span
+                                                    class="badge badge-neutral">Priority 3</span></div>
+                                            <div class="redist-header"><span class="redist-from">Community Hall
+                                                    (78%)</span><span class="redist-arrow">→</span><span
+                                                    class="redist-to">Govt. School (52%)</span></div>
+                                            <div class="redist-details"><span>👥 30 evacuees</span><span>📏 1.8
+                                                    km</span><span>⏱ ~12 min</span></div>
+                                            <div class="redist-action" style="display:flex;gap:6px;margin-top:10px">
+                                                <button class="btn btn-primary btn-sm" style="flex:1">✓
+                                                    Approve</button><button class="btn btn-secondary btn-sm"
+                                                    style="flex:1">✎ Modify</button></div>
+                                        </div>
+                                        <div class="info-box" style="margin-top:8px">
+                                            <h4>🤖 AI Optimization Notes</h4>
+                                            <ul>
+                                                <li>Redistribution based on proximity, capacity, and vulnerability
+                                                    priority</li>
+                                                <li>Transport logistics auto-coordinated with field teams</li>
+                                                <li>Estimated total rebalance time: ~45 minutes</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottom-nav">
+                                    <button class="bottom-nav-item" onclick="showScreen('co-dash')"><span
+                                            class="bnav-icon">🎯</span>Dashboard</button>
+                                    <button class="bottom-nav-item" onclick="showScreen('co-alerts')"><span
+                                            class="bnav-icon">🔔</span>Alerts</button>
+                                    <button class="bottom-nav-item" onclick="showScreen('co-analytics')"><span
+                                            class="bnav-icon">📉</span>Analytics</button>
+                                    <button class="bottom-nav-item active"><span
+                                            class="bnav-icon">🔄</span>Redist.</button>
+                                </div>
+                            </div>
+                        </div>
+        </main>
+    </div>
+
+    <script>
+        // Screen metadata
+        const META = {
+            'login': ['Login & Role Selection', 'Secure authentication with role-based access control'],
+            'fr-map': ['Live Hazard Map', 'Field Responder — GIS view with real-time hazard zones'],
+            'fr-shelters': ['Nearby Shelters', 'Field Responder — Shelter list with distance and capacity'],
+            'fr-allocate': ['Allocate Evacuee', 'Field Responder — Evacuee registration with vulnerability tags'],
+            'fr-offline': ['Offline Mode', 'Field Responder — SMS fallback and offline data sync'],
+            'sa-dash': ['Admin Dashboard', 'Shelter Administrator — Occupancy & facility overview'],
+            'sa-checkin': ['Digital Check-In', 'Shelter Administrator — Register new evacuee arrivals'],
+            'sa-occupancy': ['Occupancy Status', 'Shelter Administrator — Capacity monitoring with color coding'],
+            'sa-facilities': ['Facility Management', 'Shelter Administrator — Toggle facility availability'],
+            'co-dash': ['Command Dashboard', 'District Command — Map overview & shelter status cards'],
+            'co-alerts': ['Alerts & Predictions', 'District Command — Overcrowding prediction & AI alerts'],
+            'co-analytics': ['Analytics Summary', 'District Command — Allocation time & occupancy stability'],
+            'co-redist': ['Redistribution Panel', 'District Command — AI-driven evacuee redistribution'],
+        };
+
+        function showScreen(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => {
+                if (n.getAttribute('onclick')?.includes(id)) n.classList.add('active');
+            });
+            const m = META[id];
+            if (m) {
+                document.getElementById('screenTitle').textContent = m[0];
+                document.getElementById('screenDesc').textContent = m[1];
+            }
+        }
+
+        function setTheme(t) {
+            document.documentElement.setAttribute('data-theme', t);
+            document.querySelectorAll('.theme-toggle button').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Toggle vulnerability tags
+        document.querySelectorAll('.vuln-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                tag.classList.toggle('selected');
+                const chk = tag.querySelector('.tag-check');
+                chk.textContent = tag.classList.contains('selected') ? '✓' : '';
+            });
+        });
+
+        // Toggle facility switches
+        document.querySelectorAll('.toggle').forEach(t => {
+            t.addEventListener('click', () => t.classList.toggle('on'));
+        });
+    </script>
+</body>
+
+</html>
